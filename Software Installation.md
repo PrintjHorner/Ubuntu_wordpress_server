@@ -20,7 +20,14 @@
     
   # 1 Configure mysql
   # 2 Configure Nginx
+  
+    sudo ufw allow 'Nginx HTTP'
+    
   # 3 Configure php
+    
+    cp /etc/php/7.0/fpm/php.ini /etc/php/7.0/fpm/php.ini.ORIG
+    sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/" /etc/php/7.0/fpm/php.ini
+    systemctl restart php7.0-fpm
     
     
     
